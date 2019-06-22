@@ -1,8 +1,9 @@
 function magic() {
-    let elems = document.querySelectorAll('.FTBzM div div .copyable-text:not([p])')
+    let elems = document.querySelectorAll('.FTBzM div div .copyable-text:not(img):not([p])')
     elems.forEach(e => {
         e.setAttribute("p", "")
         recursiveProcess(e)
+        console.log(e.innerText)
     })
 }
 function recursiveProcess(elem) {
@@ -23,9 +24,16 @@ function emojiMagic(textNode, emojies) {
             image.width = "20"
             image.height = "20"
             image.src = emojies[key]
-            image.classList = "b65 emoji wa selectable-text invisible-space copyable-text"
+            image.setAttribute("draggable", false)
+            image.classList = "selectable-text invisible-space copyable-text"//"b65 emoji wa selectable-text invisible-space copyable-text"
             image.setAttribute("data-plain-text", `:${key}:`)
             textNode.parentElement.insertBefore(image, textNode.nextSibling)
+            if (image.parentElement.parentElement.parentElement.innerText == "") {
+                image.height = "48"
+                image.width = "48"
+                image.parentElement.classList = "_3X58t"
+                image.parentElement.parentElement.classList = "_12pGw"
+            }
         }
     }
 }
@@ -40,10 +48,10 @@ var observer = new MutationObserver(onChange);
 function init() {
     let observedElem = document.querySelector("._1ays2")
     if (!observedElem) {
-        console.log("called")
+        // console.log("called")
         setTimeout(() => init(), 1000)
     } else {
-        console.log(observedElem)
+        // console.log(observedElem)
         magic()
         observer.observe(observedElem, {
             childList: true, characterData: true, attributes: true
