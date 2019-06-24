@@ -44,14 +44,15 @@ function onChange(changes, observer) {
 }
 
 var observer = new MutationObserver(onChange);
+let observedElem;
 
 function init() {
-    let observedElem = document.querySelector("._1ays2")
-    if (!observedElem) {
-        // console.log("called")
-        setTimeout(() => init(), 1000)
-    } else {
+    let newElem = document.querySelector("._1ays2")
+    setTimeout(() => init(), 500)
+    if (newElem != observedElem) {
         // console.log(observedElem)
+        observer.disconnect()
+        observedElem = newElem
         magic()
         observer.observe(observedElem, {
             childList: true, characterData: true, attributes: true
