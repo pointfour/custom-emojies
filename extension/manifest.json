@@ -18,5 +18,13 @@
                 "whatsapp.js"
             ]
         }
+    ],
+    "browser_action": {
+        "default_icon": "blobross.png",
+        "default_popup": "popup.html",
+        "default_title": "Custom Emojies"
+    },
+    "permissions": [
+        "https://firestore.googleapis.com/"
     ]
 }

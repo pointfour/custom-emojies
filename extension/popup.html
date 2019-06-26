@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background: transparent;
+            width: 300px;
+            height: 500px;
+            margin: 0px;
+            padding: 40px 20px;
+            background: #333;
+            color: #eee;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        input[type=text] {
+            width: 100%;
+            font: 400 11px system-ui;
+            padding: 8px 16px;
+            font-size: 14px;
+            background: #131313;
+            border: none;
+            color: #ccc;
+            margin: 15px 0px;
+            transition: background-color 300ms;
+        }
+
+        .row {
+            margin: 15px 0px;
+        }
+
+        input[type=text]:focus {
+            outline: none;
+            background: #030303;
+            transition: background-color 300ms;
+        }
+
+        input[type=button] {
+            background: hsl(180, 100%, 70%);
+            color: black;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: none;
+            transition: background-color 300ms;
+        }
+
+        input[type=button]:focus {
+            outline: none;
+        }
+
+        input[type=button]:active {
+            background: hsl(180, 100%, 80%);
+            transition: background-color 300ms;
+        }
+    </style>
+    <script src="popup.js"></script>
+</head>
+
+<body>
+    <h1 class="center">Add Emoji</h1>
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="src" placeholder="Image Src">
+    <div class="center row"><input type="button" value="Submit" id="btn"></div>
+    <div class="output row" id="output">
+
+    </div>
+</body>
+
+</html>
