@@ -1,7 +1,5 @@
 window.onload = () => {
     document.getElementById("btn").addEventListener("click", submit)
-    document.getElementById("name").value = "blobross"
-    document.getElementById("src").value = "https://discordemoji.com/assets/emoji/blobross.png"
 }
 
 
@@ -9,17 +7,14 @@ window.onload = () => {
 function submit() {
     const name = document.getElementById("name").value
     const src = document.getElementById("src").value
-    const url = `https://firestore.googleapis.com/v1beta1/projects/customemojiextension/databases/(default)/documents/emojies/`
-    let data = {
-        fields: {
-            created: { timestampValue: new Date() },
-            modified: { timestampValue: new Date() }
-        }
-    }
+    const url = `https://customemojiextension.firebaseio.com/${name}.json`
     window.fetch(url, {
-        method: "POST"
+        method: "PUT",
+        body: JSON.stringify(src)
     }).then(res => {
         console.log(res)
+        document.getElementById("name").value = ''
+        document.getElementById("src").value  = ''
     }).catch(err => {
         if (err) document.getElementById("output").innerText = err
     })

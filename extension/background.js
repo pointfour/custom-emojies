@@ -3,10 +3,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (emojies[request.name]) {
             sendResponse(emojies[request.name])
         } else {
-            window.fetch(`https://firestore.googleapis.com/v1beta1/projects/customemojiextension/databases/(default)/documents/emojies/${request.name}`).then(res => {
+            window.fetch(`https://customemojiextension.firebaseio.com/${request.name}.json`).then(res => {
                 return res.json()
-            }).then(actualres => {
-                let src = actualres.fields.src.stringValue
+            }).then(src => {
                 emojies[request.name] = src
                 sendResponse(src)
             })

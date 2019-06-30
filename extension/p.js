@@ -9,6 +9,7 @@ const process = (() => {
     async function loadNewEmojies(querys, converts) {
         let promises = []
         for (let i = 0; i < querys.length; i++) {
+            console.log(querys[i])
             promises.push(loadEmoji(querys[i], converts))
         }
         return Promise.all(promises)
