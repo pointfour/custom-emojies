@@ -17,6 +17,14 @@
                 "p.js",
                 "whatsapp.js"
             ]
+        }, {
+            "matches": [
+                "https://messages.google.com/*"
+            ],
+            "js": [
+                "p.js",
+                "androidmessages.js"
+            ]
         }
     ],
     "browser_action": {
